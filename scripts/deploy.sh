@@ -7,7 +7,7 @@ aws eks update-kubeconfig \
   --name brain-eks
 
 echo "Deploying to EKS..."
-kubectl apply -f k8s/deployment.yaml
-kubectl apply -f k8s/service.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
 
 echo "Deployment completed"
