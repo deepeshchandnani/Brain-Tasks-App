@@ -1,8 +1,11 @@
 #!/bin/bash
 set -e
 
-echo "Moving to deployment archive..."
-cd /opt/codedeploy-agent/deployment-root/*/*/deployment-archive
+echo "Finding latest deployment archive..."
+LATEST_DIR=$(ls -td /opt/codedeploy-agent/deployment-root/*/*/deployment-archive | head -1)
+
+echo "Moving to deployment archive: $LATEST_DIR"
+cd "$LATEST_DIR"
 
 echo "Updating kubeconfig..."
 aws eks update-kubeconfig \
