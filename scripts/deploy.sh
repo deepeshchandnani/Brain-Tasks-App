@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo "Moving to deployment archive..."
+cd /opt/codedeploy-agent/deployment-root/*/d-*/deployment-archive
+
 echo "Updating kubeconfig..."
 aws eks update-kubeconfig --region ap-south-1 --name brain-eks
 
